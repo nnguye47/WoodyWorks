@@ -5,15 +5,21 @@ const Item = styled.div`
   font-size: 1.5em;
   text-align: center;
   color: black;
-  border-color: red;
-  border-width: 1px;
-  border-style: solid;
+  background: lightgreen;
+  width: 250px;
+  height: 330px;
+  border-radius: 5px;
+
+  :hover {
+    transform: scale(1.1);
+    transition: transform 1s;
+  }
 `;
 
 export default function FeaturedItem() {
   return (
     <Item id="featuredItem">
-      <img src="" alt="img" />
+      <img src="./assets/logo.png" alt="" width="100%" height="65%" />
       <p>Product Name</p>
       <p>Category</p>
     </Item>

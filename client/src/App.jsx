@@ -10,7 +10,7 @@ const HomeLayout = styled.div`
 `;
 
 function App() {
-  const [page, setPage] = useState('home');
+  const [page, setPage] = useState('art');
 
   const changePage = (e) => {
     e.preventDefault();
