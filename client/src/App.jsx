@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import Nav from './Nav';
 import Home from './Home/Home';
 import Art from './Art/Art';
+
+const HomeLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 function App() {
   const [page, setPage] = useState('home');
@@ -13,9 +19,11 @@ function App() {
 
   if (page === 'home') {
     return (
-      <div className="App">
+      <div>
         <Nav changePage={changePage} />
-        <Home />
+        <HomeLayout className="App">
+          <Home />
+        </HomeLayout>
       </div>
     );
   }
