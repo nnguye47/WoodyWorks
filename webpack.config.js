@@ -1,52 +1,34 @@
 const path = require('path');
-const webpack = require('webpack'); //eslint-disable-line
-const DotEnv = require('dotenv-webpack'); //eslint-disable-line
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const webpack = require('webpack'); //eslint-disable-line
+// const DotEnv = require('dotenv-webpack'); //eslint-disable-line
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index.js'),
+  entry: path.join(__dirname, './client/src/index.jsx'),
   mode: 'development',
   output: {
+    path: path.join(__dirname, './client/dist'),
     filename: 'bundle.js',
-    path: path.join(__dirname, 'dist'),
   },
-  devServer: {
-    static: {
-      directory: path.resolve(__dirname, 'dist'),
-    },
-    port: 3000,
-    open: true,
-    hot: true,
-    compress: true,
-    historyApiFallback: true,
-  },
+  devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.(js|jsx)?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
-        test: /\.css$/i,
-        include: path.resolve(__dirname, 'src'),
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   resolve: { extensions: ['', '.js', '.jsx'] },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html', // to import index.html file inside index.js
-    }),
-    new DotEnv(),
-  ],
+  plugins: [],
 };
