@@ -1,6 +1,13 @@
 import React from 'react';
 // import axios from 'axios';
 import Product from './Product';
+import styled from 'styled-components';
+
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 export default function ProductsList() {
   // const [sort, setSort] = useState('newest');
@@ -23,11 +30,14 @@ export default function ProductsList() {
           <option value="liked" onChange={handleSort}>Most Liked</option>
         </select>
       </div>
-      <div id="productList">
+      <List id="productList">
         <Product />
         <Product />
         <Product />
-      </div>
+        <Product />
+        <Product />
+        <Product />
+      </List>
     </div>
   );
 }

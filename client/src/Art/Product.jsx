@@ -4,14 +4,13 @@ import styled from 'styled-components';
 const Prod = styled.div`
   background: lightgreen;
   margin: 10px;
-  width: 500px;
+  width: 550px;
   height: 150px;
   display: flex;
   flex-direction: row;
   justify-content: start;
   gap: 10px;
-`
-
+`;
 
 export default function Product() {
   return (
