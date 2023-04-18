@@ -7,6 +7,7 @@ const Ft = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-bottom: 20px;
 `;
 
 const SectionTitle = styled.h1`

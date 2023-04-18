@@ -6,7 +6,8 @@ import FeaturedItem from './FeaturedItem';
 const Feat = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 25px;
   flex-wrap: wrap;
 `;
 

@@ -22,22 +22,13 @@ export default function ProductsList() {
   };
 
   return (
-    <div>
-      <div>
-        <select>
-          <option value="newest" onChange={handleSort}>Newest</option>
-          <option value="popular" onChange={handleSort}>Popular</option>
-          <option value="liked" onChange={handleSort}>Most Liked</option>
-        </select>
-      </div>
-      <List id="productList">
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-      </List>
-    </div>
+    <List id="productList">
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+      <Product />
+    </List>
   );
 }

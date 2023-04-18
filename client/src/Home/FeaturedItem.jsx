@@ -12,7 +12,7 @@ const Item = styled.div`
 
   :hover {
     transform: scale(1.1);
-    transition: transform 1s;
+    transition: transform 0.75s;
   }
 `;
 
