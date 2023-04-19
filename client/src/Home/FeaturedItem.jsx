@@ -31,11 +31,11 @@ const ItemBtn = styled.button`
   left: 35%;
   margin: auto;
 `;
-export default function FeaturedItem() {
+export default function FeaturedItem({ item }) {
+  const { name, description } = item;
   const [btn, setBtn] = useState(false);
 
   const showButton = (e) => {
-    console.log('new btn', !btn);
     setBtn(!btn);
   };
 
@@ -45,8 +45,8 @@ export default function FeaturedItem() {
         <Image onMouseEnter={showButton} onMouseLeave={showButton} src="./assets/logo.png" alt="" width="100%" height="65%" />
         {btn ? <ItemBtn>Go To Item</ItemBtn> : null}
       </div>
-      <Name>Product Name</Name>
-      <p>Category</p>
+      <Name>{name}</Name>
+      <p>{description}</p>
     </Item>
   );
 }

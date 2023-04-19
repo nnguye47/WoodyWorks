@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import FeaturedItem from './FeaturedItem';
@@ -18,21 +18,31 @@ const FtSection = styled.div`
 `;
 
 export default function FeaturedList() {
-  // const [featured, setFeatured] = useState({});
+  const [featured, setFeatured] = useState([]);
   useEffect(() => {
     axios.get('/products')
-      .then((data) => {
-        console.log('my data', data);
+      .then((response) => {
+        console.log('my data', response.data);
+        setFeatured(response.data);
       })
       .catch((err) => {
         console.log('could not get data', err);
       });
   }, []);
+
+  if (featured) {
+    return (
+      <Feat id="featured">
+        {featured.map((item, index) => (
+          <FeaturedItem item={item} key={index} />
+        ))}
+      </Feat>
+    );
+  }
+
   return (
-    <Feat id="featured">
-      <FeaturedItem />
-      <FeaturedItem />
-      <FeaturedItem />
-    </Feat>
+    <div>
+      fetching data
+    </div>
   );
 }

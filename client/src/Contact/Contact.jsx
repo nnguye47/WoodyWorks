@@ -10,7 +10,7 @@ const Divider = styled.hr`
   margin: auto;
 `;
 
-const Ft = styled.div`
+const Cont = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,23 +23,36 @@ const SectionTitle = styled.h1`
   align-self: center;
 `;
 
+const Info = styled.div`
+  color: #97C2B9;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Hi = styled.h2`
+  margin: auto;
+`;
+
 export default function Contact() {
   const [currentPage, setCurrentPage] = useState('contact');
 
   return (
-    <Ft>
+    <Cont>
       <Nav currentPage={currentPage} />
-      <SectionTitle>About Me</SectionTitle>
-      <img src="./assets/hiwoody.png" alt="contactme" width="300" height="300" />
+      <SectionTitle>Hi! My name is Lily.</SectionTitle>
       <Divider />
-      <h2>Hi! My name is Lily.</h2>
-      <h3>
-        I am a SF-based visual artist. My strengths include
+      <Info>
+        <h3>
+          I am a SF-based visual artist. My strengths include
 
-        both traditional and digital illustration, with a emphasis
-        on colorful, playful interpretations.
+          both traditional and digital illustration, with a emphasis
+          on colorful, playful interpretations.
 
-      </h3>
-    </Ft>
+        </h3>
+        <img src="./assets/hiwoody.png" alt="contactme" width="300" height="300" />
+      </Info>
+    </Cont>
   );
 }

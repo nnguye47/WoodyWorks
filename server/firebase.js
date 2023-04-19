@@ -5,12 +5,6 @@ const { getAuth } = require('firebase/auth');
 // const { getAnalytics } = require('firebase/analytics');
 const {
   getFirestore,
-  collection,
-  getDocs,
-  doc,
-  setDoc,
-  deleteDoc,
-  updateDoc,
 } = require('firebase/firestore');
 
 // Create a reference to the cities collection
@@ -32,12 +26,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
-// Initialize Firebase
-// Initialize Firebase
 const db = getFirestore(app);
-module.exports = db;
 
 module.exports.auth = getAuth(app);
 
-module.exports.productsCol = collection(module.exports.db, 'products');
-module.exports.photosCol = collection(module.exports.db, 'photos');
+module.exports = db;

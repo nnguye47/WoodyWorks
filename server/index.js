@@ -1,8 +1,8 @@
 require('dotenv').config();
 const path = require('path');
-
 const express = require('express');
 const morgan = require('morgan');
+const controller = require('./controllers');
 
 const app = express();
 app.use(morgan('dev'));
@@ -12,9 +12,7 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/products', (req, res) => {
-  res.send('hello from server');
-});
+app.get('/products', controller.getFeatured);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/'));
