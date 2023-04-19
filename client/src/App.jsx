@@ -8,42 +8,27 @@ import Greeting from './Home/Greeting';
 
 const HomeLayout = styled.div`
   width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Intro = styled.img`
+  width: 65%;
+  height: 30%;
 `;
 
 function App() {
-  const [page, setPage] = useState('art');
-
-  const changePage = (e) => {
-    e.preventDefault();
-    console.log(e.target.value);
-    setPage(e.target.value);
-  };
-
-  // if (page === 'home') {
-  //   return (
-  //     <div>
-  //       <Nav changePage={changePage} />
-  //       <HomeLayout className="App">
-  //         <Home />
-  //       </HomeLayout>
-  //     </div>
-  //   );
-  // }
-
-  // if (page === 'art') {
-  //   return (
-  //     <div className="App">
-  //       <Nav changePage={changePage} />
-  //       <Art />
-  //     </div>
-  //   );
-  // }
+  const [currentPage, setCurrentPage] = useState('app');
 
   return (
     <div>
-      <Nav changePage={changePage} />
+      <Nav currentPage={currentPage} />
       <HomeLayout className="App">
-        <Home />
+        {/* <Home /> */}
+        <img src="./assets/woodymakesthings.png" alt="woody" width="60%" height="20%" />
+        <img src="./assets/hiwoody.png" alt="hiwoody" width="30%" height="30%" />
       </HomeLayout>
     </div>
   );

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Nav from '../Nav';
 import Greeting from './Greeting';
 import FeaturedList from './FeaturedList';
 
@@ -24,8 +25,10 @@ const Divider = styled.hr`
 `;
 
 export default function Home() {
+  const [currentPage, setCurrentPage] = useState('home');
   return (
     <Ft>
+      <Nav currentPage={currentPage} />
       <Greeting />
       <Divider />
       <SectionTitle>Featured Items</SectionTitle>

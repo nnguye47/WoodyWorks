@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import MyModal from '../Modal';
+// import MyModal from '../Modal';
 import Nav from '../Nav';
 import ProductsList from './ProductsList';
 
@@ -9,6 +9,7 @@ const ArtHome = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  gap: 25px;
 `;
 
 const Sel = styled.div`
@@ -16,7 +17,17 @@ const Sel = styled.div`
   display: inline-block;
 `;
 
+const Divider = styled.hr`
+  background-color: #809CBF;
+  width: 35%;
+  height: 2px;
+  border-radius: 20px;
+  margin: auto;
+`;
+
 export default function Art() {
+  const [currentPage, setCurrentPage] = useState('shop');
+
   const handleSort = (e) => {
     console.log(e.target.value);
     // setSort(e.target.value);
@@ -24,16 +35,11 @@ export default function Art() {
 
   return (
     <div>
-      <Nav />
+      <Nav currentPage={currentPage} />
       <ArtHome>
         <h1>Stationary and Art</h1>
-        {/* <img src="./assets/artbear.png" a/> */}
-        <MyModal />
-        <Sel>
-          <h3 value="newest" onClick={handleSort} value="newest">Newest</h3>
-          <h3 value="popular" onClick={handleSort} value="popular">Popular</h3>
-          <h3 value="liked" onClick={handleSort} value="mostLiked">Most Liked</h3>
-        </Sel>
+        <img src="./assets/artbear.png" alt="hello" width="300" height="300" />
+        <Divider />
         <ProductsList />
       </ArtHome>
     </div>

@@ -32,9 +32,12 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
+// Initialize Firebase
+// Initialize Firebase
+const db = getFirestore(app);
+module.exports = db;
 
 module.exports.auth = getAuth(app);
-module.exports.db = (app);
 
 module.exports.productsCol = collection(module.exports.db, 'products');
 module.exports.photosCol = collection(module.exports.db, 'photos');

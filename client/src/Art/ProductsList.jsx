@@ -9,6 +9,7 @@ const List = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  gap: 25px;
   width: 70%;
 `;
 
@@ -21,6 +22,9 @@ export default function ProductsList() {
 
   return (
     <List id="productList">
+      <Product />
+      <Product />
+      <Product />
       <Product />
       <Product />
       <Product />

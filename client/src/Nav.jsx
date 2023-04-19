@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -13,6 +13,7 @@ const Logo = styled.img`
   float: left;
   height: 70px;
   width: 70px;
+  opacity: 50%;
 `;
 
 const Links = styled.ul`
@@ -31,19 +32,46 @@ const Anchors = {
   textDecoration: 'none',
 };
 
-export default function Nav() {
+export default function Nav({ currentPage }) {
+  // const [page, setPage] = useState(currentPage);
+
+  // const changePage = (e) => {
+  //   console.log(e.target.alt);
+  //   setPage(e.target.alt);
+  // };
+
   return (
     <NavBar id="nav">
-      <Logo src="./assets/logo.png" alt="logo" height="70" width="70" />
+      <Logo src="./assets/lightlogo.png" alt="logo" height="70" width="70" />
       <Links>
         <LinkItem>
-          <Link to="/" style={Anchors}>
-            Home
+          <Link to="/home" style={Anchors}>
+            <img
+              src={(currentPage === 'home') ? './assets/home_icon.png' : './assets/house.png'}
+              alt="home"
+              height="100"
+              width="100"
+            />
           </Link>
         </LinkItem>
         <LinkItem>
           <Link to="/art" style={Anchors}>
-            Art
+            <img
+              src={(currentPage !== 'shop') ? './assets/cart.png' : './assets/shop.png'}
+              alt="shop"
+              height="100"
+              width="100"
+            />
+          </Link>
+        </LinkItem>
+        <LinkItem>
+          <Link to="/contact" style={Anchors}>
+            <img
+              src={(currentPage === 'contact') ? './assets/contact.png' : './assets/letter.png'}
+              alt="contact"
+              height="100"
+              width="100"
+            />
           </Link>
         </LinkItem>
       </Links>

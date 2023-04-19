@@ -6,3 +6,11 @@ html {
   width: 100%;
   height: 100%;
 }
+
+.swiper-button-next { color: black; }
+
+.swiper-button-prev { color: black; }
+
+.swiper-pagination-bullet-active {
+  background-color: black !important;
+}

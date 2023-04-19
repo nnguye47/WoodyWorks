@@ -33,6 +33,7 @@
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.10.0",
+    "swiper": "^9.2.3",
     "webpack-dev-server": "^4.13.3"
   },
   "devDependencies": {
