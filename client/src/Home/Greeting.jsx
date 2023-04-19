@@ -1,10 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const Title = styled.h1`
   font-size: 3em;
   text-align: center;
-  color: green;
 `;
 
 const Intro = styled.div`
@@ -18,7 +17,7 @@ export default function Greeting() {
 
   return (
     <Intro id="greeting">
-      <Title>Hi! Welcome to Woody Works</Title>
+      <Title>Woody Makes Things</Title>
       <img src="./assets/hiwoody.png" alt="woodyWave" width="300" height="300" />
     </Intro>
   );

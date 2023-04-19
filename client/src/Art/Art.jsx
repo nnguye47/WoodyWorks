@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import MyModal from '../Modal';
 import Nav from '../Nav';
 import ProductsList from './ProductsList';
 
@@ -11,9 +12,10 @@ const ArtHome = styled.div`
 `;
 
 const Sel = styled.div`
-  align-self: end;
-  width: 31%;
+  align-self: center;
+  display: inline-block;
 `;
+
 export default function Art() {
   const handleSort = (e) => {
     console.log(e.target.value);
@@ -25,12 +27,12 @@ export default function Art() {
       <Nav />
       <ArtHome>
         <h1>Stationary and Art</h1>
+        {/* <img src="./assets/artbear.png" a/> */}
+        <MyModal />
         <Sel>
-          <select>
-            <option value="newest" onChange={handleSort}>Newest</option>
-            <option value="popular" onChange={handleSort}>Popular</option>
-            <option value="liked" onChange={handleSort}>Most Liked</option>
-          </select>
+          <h3 value="newest" onClick={handleSort} value="newest">Newest</h3>
+          <h3 value="popular" onClick={handleSort} value="popular">Popular</h3>
+          <h3 value="liked" onClick={handleSort} value="mostLiked">Most Liked</h3>
         </Sel>
         <ProductsList />
       </ArtHome>

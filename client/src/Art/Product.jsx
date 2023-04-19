@@ -1,26 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from '@mui/material/Modal';
 import styled from 'styled-components';
 
 const Prod = styled.div`
-  background: lightgreen;
   margin: 10px;
-  width: 550px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-evenly;
   gap: 10px;
 `;
+
+const Image = styled.img`
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 export default function Product() {
   return (
     <Prod>
-      <img src="./assets/logo.png" alt="product" height="150" width="150"/>
-      <div>
-        <h2>product name</h2>
-        <p>price</p>
-        some lengthy descriptions that may or may not fill this area
-      </div>
+      <button type="button">
+        <Image src="./assets/logo.png" alt="product" height="200px" width="200px" />
+      </button>
     </Prod>
   );
 }

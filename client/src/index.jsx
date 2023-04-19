@@ -2,9 +2,10 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 // import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import Modal from 'react-modal';
 import App from './App';
 import Art from './Art/Art';
-import Home from './Home/Home';
+// import Home from './Home/Home';
 import './styles.css';
 
 createRoot(document.getElementById('root')).render(

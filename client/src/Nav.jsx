@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const NavBar = styled.nav`
-  background: green;
+  background-color: #faf5eb;
   width: 100%;
   height: 75px;
   line-height: 75px;
-  background-image: linear-gradient(green, lightgreen);
 `;
 
 const Logo = styled.img`
@@ -25,31 +24,27 @@ const LinkItem = styled.li`
   list-style: none;
 `;
 
-const Anchors = styled.p`
-  font-size: 25px;
-  padding-right: 25px;
-  color: white;
-  text-decoration: none;
-`;
+const Anchors = {
+  fontSize: '25px',
+  paddingRight: '25px',
+  color: '#809CBF',
+  textDecoration: 'none',
+};
 
-export default function Nav({ changePage }) {
+export default function Nav() {
   return (
     <NavBar id="nav">
       <Logo src="./assets/logo.png" alt="logo" height="70" width="70" />
       <Links>
-        <LinkItem onClick={changePage} value="home">
-          <Anchors href="" value="home">
-            <Link to="/">
-              Home
-            </Link>
-          </Anchors>
+        <LinkItem>
+          <Link to="/" style={Anchors}>
+            Home
+          </Link>
         </LinkItem>
-        <LinkItem onClick={changePage} value="art">
-          <Anchors href="" value="art">
-            <Link to="/art">
-              Art
-            </Link>
-          </Anchors>
+        <LinkItem>
+          <Link to="/art" style={Anchors}>
+            Art
+          </Link>
         </LinkItem>
       </Links>
     </NavBar>

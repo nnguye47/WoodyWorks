@@ -1,13 +1,16 @@
 import React from 'react';
 // import axios from 'axios';
-import Product from './Product';
+// import Modal from 'react-modal';
 import styled from 'styled-components';
+import Product from './Product';
 
 const List = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-`
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 70%;
+`;
 
 export default function ProductsList() {
   // const [sort, setSort] = useState('newest');
@@ -16,16 +19,8 @@ export default function ProductsList() {
   //   axios.get(`/products?category=art&count=5&sort=${sort}`);
   // }, [sort]);
 
-  const handleSort = (e) => {
-    console.log(e.target.value);
-    // setSort(e.target.value);
-  };
-
   return (
     <List id="productList">
-      <Product />
-      <Product />
-      <Product />
       <Product />
       <Product />
       <Product />

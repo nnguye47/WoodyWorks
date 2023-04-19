@@ -8,16 +8,26 @@ const Ft = styled.div`
   flex-direction: column;
   width: 100%;
   padding-bottom: 20px;
+  gap: 25px;
 `;
 
 const SectionTitle = styled.h1`
   align-self: center;
 `;
 
+const Divider = styled.hr`
+  background-color: #809CBF;
+  width: 35%;
+  height: 2px;
+  border-radius: 20px;
+  margin: auto;
+`;
+
 export default function Home() {
   return (
     <Ft>
       <Greeting />
+      <Divider />
       <SectionTitle>Featured Items</SectionTitle>
       <FeaturedList />
     </Ft>
