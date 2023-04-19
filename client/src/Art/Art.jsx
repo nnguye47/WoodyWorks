@@ -9,6 +9,7 @@ const ArtHome = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
+  padding-bottom: 20px;
   gap: 25px;
 `;
 

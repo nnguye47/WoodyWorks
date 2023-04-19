@@ -16,7 +16,7 @@ export default function Greeting() {
 
   return (
     <Intro id="greeting">
-      <img src="./assets/hiwoody.png" alt="woodyWave" width="300" height="300" />
+      <img src="./assets/thumbs_up.png" alt="woodyWave" width="300" height="300" />
     </Intro>
   );
 }

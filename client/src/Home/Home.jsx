@@ -29,9 +29,9 @@ export default function Home() {
   return (
     <Ft>
       <Nav currentPage={currentPage} />
+      <SectionTitle>Featured Items</SectionTitle>
       <Greeting />
       <Divider />
-      <SectionTitle>Featured Items</SectionTitle>
       <FeaturedList />
     </Ft>
   );

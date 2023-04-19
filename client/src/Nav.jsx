@@ -13,7 +13,8 @@ const Logo = styled.img`
   float: left;
   height: 70px;
   width: 70px;
-  opacity: 50%;
+  padding-left: 25px;
+  padding-top: 10px;
 `;
 
 const Links = styled.ul`
