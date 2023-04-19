@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Item = styled.div`
@@ -31,8 +31,9 @@ const ItemBtn = styled.button`
   left: 35%;
   margin: auto;
 `;
+
 export default function FeaturedItem({ item }) {
-  const { name, description } = item;
+  const { name, description, featured_photo } = item;
   const [btn, setBtn] = useState(false);
 
   const showButton = (e) => {
@@ -42,7 +43,7 @@ export default function FeaturedItem({ item }) {
   return (
     <Item id="featuredItem">
       <div>
-        <Image onMouseEnter={showButton} onMouseLeave={showButton} src="./assets/logo.png" alt="" width="100%" height="65%" />
+        <Image onMouseEnter={showButton} onMouseLeave={showButton} src="" alt="" width="100%" height="65%" />
         {btn ? <ItemBtn>Go To Item</ItemBtn> : null}
       </div>
       <Name>{name}</Name>

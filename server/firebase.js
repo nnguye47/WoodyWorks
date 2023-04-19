@@ -6,6 +6,7 @@ const { getAuth } = require('firebase/auth');
 const {
   getFirestore,
 } = require('firebase/firestore');
+const { getStorage } = require('firebase/storage');
 
 // Create a reference to the cities collection
 // TODO: Add SDKs for Firebase products that you want to use
@@ -27,7 +28,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 module.exports.auth = getAuth(app);
 
-module.exports = db;
+module.exports = { db, storage };
+// module.exports = db;
