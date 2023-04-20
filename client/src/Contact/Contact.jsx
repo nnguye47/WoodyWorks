@@ -32,7 +32,7 @@ const Info = styled.div`
 `;
 
 const Hi = styled.h2`
-  margin: auto;
+  align-text: center;
 `;
 
 export default function Contact() {
@@ -44,13 +44,13 @@ export default function Contact() {
       <SectionTitle>Hi! My name is Lily.</SectionTitle>
       <Divider />
       <Info>
-        <h3>
+        <Hi>
           I am a SF-based visual artist. My strengths include
 
           both traditional and digital illustration, with a emphasis
           on colorful, playful interpretations.
 
-        </h3>
+        </Hi>
         <img src="./assets/hiwoody.png" alt="contactme" width="300" height="300" />
       </Info>
     </Cont>

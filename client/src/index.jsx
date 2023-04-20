@@ -8,6 +8,7 @@ import Art from './Art/Art';
 import Home from './Home/Home';
 import Contact from './Contact/Contact';
 import './styles.css';
+import './Font/LilysHandwriting-final.otf';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>

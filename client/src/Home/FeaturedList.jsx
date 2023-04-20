@@ -20,7 +20,6 @@ const FtSection = styled.div`
 export default function FeaturedList() {
   const [featured, setFeatured] = useState([]);
   useEffect(() => {
-    console.log('fire use effect')
     axios.get('/products/featured')
       .then((response) => {
         setFeatured(response.data);

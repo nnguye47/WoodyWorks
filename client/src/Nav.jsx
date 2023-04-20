@@ -33,6 +33,14 @@ const Anchors = {
   textDecoration: 'none',
 };
 
+const Image = styled.img`
+:hover {
+  cursor: pointer;
+  transform: rotate(10deg) scale(1.1);
+  transition: transform .1s;
+}
+`;
+
 export default function Nav({ currentPage }) {
   // const [page, setPage] = useState(currentPage);
 
@@ -47,7 +55,7 @@ export default function Nav({ currentPage }) {
       <Links>
         <LinkItem>
           <Link to="/home" style={Anchors}>
-            <img
+            <Image
               src={(currentPage === 'home') ? './assets/home_icon.png' : './assets/house.png'}
               alt="home"
               height="100"
@@ -57,7 +65,7 @@ export default function Nav({ currentPage }) {
         </LinkItem>
         <LinkItem>
           <Link to="/art" style={Anchors}>
-            <img
+            <Image
               src={(currentPage !== 'shop') ? './assets/cart.png' : './assets/shop.png'}
               alt="shop"
               height="100"
@@ -67,7 +75,7 @@ export default function Nav({ currentPage }) {
         </LinkItem>
         <LinkItem>
           <Link to="/contact" style={Anchors}>
-            <img
+            <Image
               src={(currentPage === 'contact') ? './assets/contact.png' : './assets/letter.png'}
               alt="contact"
               height="100"

@@ -6,7 +6,6 @@ import { db, storage } from '../../../server/firebase';
 const Item = styled.div`
   font-size: 1.5em;
   text-align: center;
-  color: black;
   width: 250px;
   height: 330px;
   border-radius: 10px;
@@ -26,14 +25,21 @@ const Name = styled.p`
   :hover {
     cursor: pointer;
   }
+
+  color: #809CBF;
+  font-size: 2em;
+  font-weight: bold;
 `;
 
-const ItemBtn = styled.button`
+const ItemBtn = styled.a`
   border-radius: 5px;
   position: absolute;
   top: 30%;
   left: 35%;
   margin: auto;
+  background: transparent;
+  text-decoration: none;
+  color: black;
 `;
 
 export default function FeaturedItem({ item }) {
@@ -46,11 +52,9 @@ export default function FeaturedItem({ item }) {
   };
 
   return (
-    <Item id="featuredItem">
-      <div>
-        <Image onMouseEnter={showButton} onMouseLeave={showButton} src={featured_photo} alt="" width="100%" height="65%" />
-        {btn ? <ItemBtn>Go To Item</ItemBtn> : null}
-      </div>
+    <Item id="featuredItem" onMouseEnter={showButton} onMouseLeave={showButton}>
+      <Image src={featured_photo} alt="" width="100%" height="65%" />
+      {btn ? <ItemBtn href="" value="">Go To Item</ItemBtn> : null}
       <Name>{name}</Name>
       <p>{description}</p>
     </Item>

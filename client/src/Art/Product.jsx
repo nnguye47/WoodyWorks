@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ButtonBase from '@mui/material/ButtonBase';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { LocalMall, LocalMallOutlined } from '@mui/icons-material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
@@ -42,21 +43,62 @@ const style = {
   p: 4,
 };
 
+const Name = styled.p`
+  color: #809CBF;
+  font-size: 2em;
+  font-weight: bold;
+`;
+
+const Price = styled.div`
+  font-size: 1.2em;
+`;
+
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Bottom = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const Bag = styled.div`
+  color: #809CBF;
+`;
+
 export default function Product({ item }) {
   // console.log(item.name ? 'test' : 'fail');
   const [open, setOpen] = useState(false);
+  const [added, setAdded] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setAdded(!added);
+  };
 
   return (
     <Prod>
       <ButtonBase disableRipple onClick={handleOpen}>
         <Image src={item.featured_photo} alt="product" height="200px" width="200px" />
       </ButtonBase>
-      <div>
-        <h3>{item.name}</h3>
-        <p>{`$${item.price}`}</p>
-      </div>
+      <Bottom>
+        <Info>
+          <Name>{item.name}</Name>
+          <Price>
+            {`$${item.price}`}
+          </Price>
+        </Info>
+        <Bag>
+          {added
+            ? <LocalMall onClick={handleClick} />
+            : <LocalMallOutlined onClick={handleClick} />}
+        </Bag>
+      </Bottom>
       <Modal
         open={open}
         onClose={handleClose}
