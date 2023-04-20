@@ -16,43 +16,35 @@ module.exports = {
 
   getFeatured: async () => {
     const results = [];
-    // const returnResult = (data) => {
-    //   results.push(data);
-    // };
     const q = query(collection(db, 'products'), where('featured', '==', true));
-
-    await getDocs(q)
-      .then((res) => {
-        res.forEach((item) => {
-          getDownloadURL(ref(storage, item.data().featured_photo))
-            .then((url) => {
-              console.log('new url', url);
-              // console.log(url);
-              const obj = item.data();
-              obj.featured_photo = url;
-              // console.log('here', obj);
-              return obj;
-            })
-            .then((newData) => {
-              // console.log('my results', newData);
-              results.push(newData);
-              console.log('the updates', results);
-            })
-            // .then(() => {
-            //   // console.log(results);
-            //   returnResult(data);
-            // })
-            .catch((err) => {
-              console.log('could not convert image', err);
-            });
-        });
-      })
+    const snapShot = await getDocs(q)
       .catch((err) => {
         console.log('could not get products in models', err);
       });
 
-    // console.log('final', results);
+    snapShot.forEach((item) => {
+      const data = item.data();
+      results.push(data);
+    });
+
+    // console.log('my results', results);
     return results;
   },
 
+  getAll: async () => {
+    const results = [];
+    const q = query(collection(db, 'products'), where('featured', '==', false));
+    const snapShot = await getDocs(q)
+      .catch((err) => {
+        console.log('could not get products in models', err);
+      });
+
+    snapShot.forEach((item) => {
+      const data = item.data();
+      results.push(data);
+    });
+
+    // console.log('my results', results);
+    return results;
+  },
 };

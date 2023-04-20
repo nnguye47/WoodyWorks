@@ -8,7 +8,18 @@ module.exports = {
         res.json(data);
       })
       .catch((err) => {
-        console.log('could not get products', err);
+        console.log('could not get featured', err);
+        res.sendStatus(500);
+      });
+  },
+
+  getAll: (req, res) => {
+    model.getAll(req.params)
+      .then((data) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        console.log('could not get all', err);
         res.sendStatus(500);
       });
   },

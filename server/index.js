@@ -12,7 +12,8 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/products', controller.getFeatured);
+app.get('/products/featured', controller.getFeatured);
+app.get('/products', controller.getAll);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/'));

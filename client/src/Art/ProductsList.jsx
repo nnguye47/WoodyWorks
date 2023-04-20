@@ -1,5 +1,5 @@
-import React from 'react';
-// import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 // import Modal from 'react-modal';
 import styled from 'styled-components';
 import Product from './Product';
@@ -15,19 +15,29 @@ const List = styled.div`
 
 export default function ProductsList() {
   // const [sort, setSort] = useState('newest');
+  const [prods, setProds] = useState([]);
 
-  // useEffect(() => {
-  //   axios.get(`/products?category=art&count=5&sort=${sort}`);
-  // }, [sort]);
+  useEffect(() => {
+    axios.get('/products')
+      .then((response) => {
+        setProds(response.data);
+      });
+  }, []);
+
+  if (prods.length > 0) {
+    return (
+      <List id="productList">
+        {prods.map((item, index) => (
+          <Product item={item} key={index} />
+        ))}
+        {/* <Product item={prods[0]} /> */}
+      </List>
+    );
+  }
 
   return (
-    <List id="productList">
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-      <Product />
-    </List>
+    <div>
+      hello world
+    </div>
   );
 }
