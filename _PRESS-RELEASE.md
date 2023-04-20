@@ -20,25 +20,16 @@ Once the project moves into development, the press release can be used as a touc
   Woody Makes Things Shop
 
 ## Sub-Heading ##
-  > This website is for those that are interested in looking at and/or buying some of the client's work
+  This website is for those that are interested in looking at and/or buying some of the client's work
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  Hi! Welcome to Woody Makes Things. This is where you can find all of the client's wonderful work. There is a landing page with a cute bear to greet you. To navigate through the website, you can click the flower icons located in the top right. There is a house icon(home) which will display the current featured items, a cart icon(shop) where you can see all the available products, and a letter icon(contact) to see more information about our client.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  The client originally did not have one place where she could show off all of her items
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
-
-## Quote from You ##
-  > A quote from a spokesperson in your company.
+   This website aims to bring it all into one place and help jumpstart the business.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
-
-## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
-## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  To get started you can fork the repo and clone it to your local environment. Once cloned, open up the repo in your editor of choice and enter "npm run client-dev" in the command line. 
