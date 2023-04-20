@@ -22,11 +22,9 @@ export default function FeaturedList() {
   useEffect(() => {
     axios.get('/products')
       .then((response) => {
-        console.log('my data', response.data);
         setFeatured(response.data);
       })
       .catch((err) => {
-        console.log('could not get data', err);
       });
   }, []);
 

@@ -1,4 +1,5 @@
 const {
+  getFirestore,
   collection,
   getDocs,
   doc,
@@ -10,29 +11,47 @@ const {
 } = require('firebase/firestore');
 const { getStorage, ref, getDownloadURL } = require('firebase/storage');
 const { db, storage } = require('./firebase');
-// const storage = require('./firebase');
 
 module.exports = {
 
   getFeatured: async () => {
     const results = [];
+    // const returnResult = (data) => {
+    //   results.push(data);
+    // };
     const q = query(collection(db, 'products'), where('featured', '==', true));
-    const snapShot = await getDocs(q)
+
+    await getDocs(q)
+      .then((res) => {
+        res.forEach((item) => {
+          getDownloadURL(ref(storage, item.data().featured_photo))
+            .then((url) => {
+              console.log('new url', url);
+              // console.log(url);
+              const obj = item.data();
+              obj.featured_photo = url;
+              // console.log('here', obj);
+              return obj;
+            })
+            .then((newData) => {
+              // console.log('my results', newData);
+              results.push(newData);
+              console.log('the updates', results);
+            })
+            // .then(() => {
+            //   // console.log(results);
+            //   returnResult(data);
+            // })
+            .catch((err) => {
+              console.log('could not convert image', err);
+            });
+        });
+      })
       .catch((err) => {
         console.log('could not get products in models', err);
       });
 
-    snapShot.forEach((item) => {
-      results.push(item.data());
-      getDownloadURL(ref(storage, item.data().featured_photo))
-        .then((url) => {
-          console.log('my image url', url);
-        })
-        .catch((err) => {
-          console.log('could not get image url', err);
-        });
-    });
-
+    // console.log('final', results);
     return results;
   },
 

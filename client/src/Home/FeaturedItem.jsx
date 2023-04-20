@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+// import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+// import db from '../../../server/firebase';
 
 const Item = styled.div`
   font-size: 1.5em;
@@ -33,8 +35,20 @@ const ItemBtn = styled.button`
 `;
 
 export default function FeaturedItem({ item }) {
+  console.log(item);
   const { name, description, featured_photo } = item;
   const [btn, setBtn] = useState(false);
+  const [image, setImage] = useState('./assets/logo.png');
+
+  // useEffect(() => {
+  //   getDownloadURL(ref(db.storage, featured_photo))
+  //     .then((url) => {
+  //       setImage(url);
+  //     })
+  //     .catch((err) => {
+  //       console.log('could not convert image', err);
+  //     });
+  // }, [item]);
 
   const showButton = (e) => {
     setBtn(!btn);
@@ -43,7 +57,7 @@ export default function FeaturedItem({ item }) {
   return (
     <Item id="featuredItem">
       <div>
-        <Image onMouseEnter={showButton} onMouseLeave={showButton} src="" alt="" width="100%" height="65%" />
+        <Image onMouseEnter={showButton} onMouseLeave={showButton} src={image} alt="" width="100%" height="65%" />
         {btn ? <ItemBtn>Go To Item</ItemBtn> : null}
       </div>
       <Name>{name}</Name>
