@@ -17,7 +17,7 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Woody Makes Things Shop
+  Woody Makes Things Shop
 
 ## Sub-Heading ##
   > This website is for those that are interested in looking at and/or buying some of the client's work
