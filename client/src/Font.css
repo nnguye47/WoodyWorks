@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'LilysHandwriting-final';
+  src: local('LilysHandwriting-final'),
+  url('./Font/LilysHandwriting-final.otf'),
+  format('opentype');
+}
